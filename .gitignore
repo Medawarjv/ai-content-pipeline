@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+cookies/
+credenciais/
+.env
+.env.*
+.wrangler/
+wrangler.local.toml
+*.jsonl
+*.log
+node_modules/

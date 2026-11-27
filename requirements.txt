@@ -1,0 +1,7 @@
+requests>=2.31
+google-api-python-client>=2.100
+google-auth-oauthlib>=1.2
+numpy>=1.26
+opencv-python>=4.9
+Pillow>=10
+rapidocr-onnxruntime>=1.3

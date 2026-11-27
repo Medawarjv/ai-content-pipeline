@@ -1,0 +1,13 @@
+name = "disparo-ig"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[triggers]
+crons = ["* * * * *"]
+
+# Fila de posts. Trocar o placeholder pelo id que `npx wrangler kv namespace create FILA` devolver.
+# Segredos (IG_TOKEN, IG_ID, CHAVE) NUNCA vão aqui: só `npx wrangler secret put <NOME>` (ver README.md).
+[[kv_namespaces]]
+binding = "FILA"
+id = "COLE_AQUI_O_ID_DO_KV_FILA"
