@@ -2,9 +2,11 @@
 
 *English below · [Português mais abaixo](#português)*
 
-Case study of a **faceless GTA 6 channel run by Claude Code agents**: YouTube, Instagram and TikTok in Brazilian Portuguese. Claude researches, writes, edits, packages and schedules. One human (me) approves, directs and gives feedback, in about 20 minutes a day.
+Case study of a **faceless GTA 6 channel run by Claude Code agents**: YouTube, Instagram and TikTok in Brazilian Portuguese. Claude researches, writes, edits, packages and schedules. One human (me) approves, directs and gives feedback, in roughly 20 minutes a day (my estimate, not measured).
 
-This repository is a showcase, not a turnkey product. It holds the architecture, the agent definitions, the feedback system and real pieces of code. Credentials, voice files, third-party footage and audience data stay private.
+![Instagram daily views and followers](docs/instagram.svg)
+
+This repository is a showcase, not a turnkey product. It holds the architecture, the agent definitions, the feedback system and real pieces of code. Credentials, voice files, third-party footage and audience data stay private. It is a clean snapshot: the private working repository has 172 commits since Oct 31, 2026.
 
 ## Results (measured, Nov 2026)
 | Metric | Value | Source in the project |

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="760" height="340" fill="#ffffff"/>
+<text x="64" y="26" font-size="16" font-weight="600" fill="#1d1c1a">Instagram @foragido_gta: daily views (bars) and followers (line)</text>
+<text x="64" y="44" font-size="12" fill="#6b6862">Source: Instagram Graph API daily account insights, Nov 2026</text>
+<rect x="37.7" y="86.8" width="52.7" height="205.2" fill="#c9d4f5"/>
+<text x="64.0" y="81.8" font-size="11" text-anchor="middle" fill="#3b5bdb">426k</text>
+<rect x="164.1" y="200.6" width="52.7" height="91.4" fill="#c9d4f5"/>
+<text x="190.4" y="195.6" font-size="11" text-anchor="middle" fill="#3b5bdb">190k</text>
+<rect x="290.5" y="113.4" width="52.7" height="178.6" fill="#c9d4f5"/>
+<text x="316.8" y="108.4" font-size="11" text-anchor="middle" fill="#3b5bdb">371k</text>
+<rect x="416.9" y="133.5" width="52.7" height="158.5" fill="#c9d4f5"/>
+<text x="443.2" y="128.5" font-size="11" text-anchor="middle" fill="#3b5bdb">329k</text>
+<rect x="543.3" y="256.2" width="52.7" height="35.8" fill="#c9d4f5"/>
+<text x="569.6" y="251.2" font-size="11" text-anchor="middle" fill="#3b5bdb">74k</text>
+<rect x="669.7" y="260.2" width="52.7" height="31.8" fill="#c9d4f5"/>
+<text x="696.0" y="255.2" font-size="11" text-anchor="middle" fill="#3b5bdb">66k</text>
+<polyline points="64.0,217.1 190.4,180.6 316.8,136.3 443.2,103.4 569.6,95.3 696.0,86.8" fill="none" stroke="#b4561f" stroke-width="3"/>
+<circle cx="64.0" cy="217.1" r="4" fill="#b4561f"/>
+<text x="64.0" y="207.1" font-size="12" font-weight="600" text-anchor="middle" fill="#b4561f">1,463</text>
+<circle cx="190.4" cy="180.6" r="4" fill="#b4561f"/>
+<text x="190.4" y="170.6" font-size="12" font-weight="600" text-anchor="middle" fill="#b4561f">2,175</text>
+<circle cx="316.8" cy="136.3" r="4" fill="#b4561f"/>
+<text x="316.8" y="126.3" font-size="12" font-weight="600" text-anchor="middle" fill="#b4561f">3,039</text>
+<circle cx="443.2" cy="103.4" r="4" fill="#b4561f"/>
+<text x="443.2" y="93.4" font-size="12" font-weight="600" text-anchor="middle" fill="#b4561f">3,682</text>
+<circle cx="569.6" cy="95.3" r="4" fill="#b4561f"/>
+<text x="569.6" y="85.3" font-size="12" font-weight="600" text-anchor="middle" fill="#b4561f">3,840</text>
+<circle cx="696.0" cy="86.8" r="4" fill="#b4561f"/>
+<text x="696.0" y="76.8" font-size="12" font-weight="600" text-anchor="middle" fill="#b4561f">4,006</text>
+<text x="64.0" y="318" font-size="12" text-anchor="middle" fill="#6b6862">20/11</text>
+<text x="190.4" y="318" font-size="12" text-anchor="middle" fill="#6b6862">21/11</text>
+<text x="316.8" y="318" font-size="12" text-anchor="middle" fill="#6b6862">22/11</text>
+<text x="443.2" y="318" font-size="12" text-anchor="middle" fill="#6b6862">23/11</text>
+<text x="569.6" y="318" font-size="12" text-anchor="middle" fill="#6b6862">24/11</text>
+<text x="696.0" y="318" font-size="12" text-anchor="middle" fill="#6b6862">25/11</text>
+<line x1="44" y1="292" x2="716" y2="292" stroke="#e4e1da"/>
+</svg>
