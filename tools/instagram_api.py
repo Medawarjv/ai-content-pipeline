@@ -112,7 +112,7 @@ def renovar(dados):
     return dados
 
 
-# ---------- freio (15/11: a Meta bloqueou a API depois de horas de consulta a cada minuto) ----------
+# ---------- freio (lição de 15/11: consultar a API a cada minuto, por horas, estoura o limite de uso) ----------
 # Regra: nenhuma chamada se repete sozinha sem limite. Erro de bloqueio, permissão ou limite da Meta puxa o FREIO:
 # toda chamada para até alguém conferir e rodar `soltar`. O teto de chamadas por hora é nosso: estourar só adia a
 # chamada (sai com código 75 e a hora da próxima vaga), sem puxar o freio (17/11).
@@ -139,7 +139,7 @@ CODIGOS_FREIO = {10, 102, 190, 368}
 CODIGOS_ESPERA = {4, 17, 32, 613}
 ESPERA = ROOT / "fila" / "IG-ESPERA.json"
 ESPERA_MIN = 20
-# Pista da rotina de respostas e directs (IG_PISTA=rotina no rodar-respostas.cmd). Conta do app por hora:
+# Pista da rotina de leitura e resposta de comentários (IG_PISTA=rotina). Conta do app por hora:
 # 30 escritas + 40 leituras + 70 de publicação + 30 e 8 da rotina = 178 das ~200 da Meta; o resto é do Worker da nuvem.
 ROTINA_LEITURAS = ROOT / "fila" / "ig-rotina-leituras.json"
 ROTINA_ESCRITAS = ROOT / "fila" / "ig-rotina-escritas.json"
@@ -227,7 +227,7 @@ def contar_chamada(leitura=False):
     """Escrita (POST) e leitura (GET) têm tetos separados por hora."""
     pub = leitura and len(sys.argv) > 1 and sys.argv[1] in COMANDOS_PUBLICAR
     if os.environ.get("IG_PISTA") == "rotina":
-        # respostas a comentários e directs (fila/rodar-respostas.cmd): prioridade baixa, pista própria e pequena,
+        # leitura e resposta de comentários: prioridade baixa, pista própria e pequena,
         # para nunca tirar vaga de postagem (JV, 18/11: "deixe um limite menor pra elas")
         arquivo, teto, tipo = ((ROTINA_LEITURAS, TETO_ROTINA_LEITURA_HORA, "leituras da rotina de respostas") if leitura
                                else (ROTINA_ESCRITAS, TETO_ROTINA_ESCRITA_HORA, "escritas da rotina de respostas"))
@@ -1058,7 +1058,9 @@ def cmd_agendar(args):
     arq_args.write_text(json.dumps(resto, ensure_ascii=False, indent=1), encoding="utf-8")
     cmd = " ".join(f'"{x}"' for x in [sys.executable, str(Path(__file__).resolve()), "executar", str(arq_args)])
     acao = f'/c "{cmd} >> "{log}" 2>&1"'.replace("'", "''")
-    ps = (f"$a = New-ScheduledTaskAction -Execute 'cmd.exe' -Argument '{acao}' -WorkingDirectory '{ROOT}'; "
+    nome = nome.replace("'", "''")  # nome de pasta com aspa simples não pode quebrar o comando do PowerShell
+    raiz_ps = str(ROOT).replace("'", "''")
+    ps = (f"$a = New-ScheduledTaskAction -Execute 'cmd.exe' -Argument '{acao}' -WorkingDirectory '{raiz_ps}'; "
           f"$t = New-ScheduledTaskTrigger -Once -At ([datetime]::ParseExact('{quando:%Y-%m-%d %H:%M}','yyyy-MM-dd HH:mm',$null)); "
           f"$s = New-ScheduledTaskSettingsSet -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Hours 1); "
           f"Register-ScheduledTask -TaskPath '{PASTA_TAREFAS}' -TaskName '{nome}' -Action $a -Trigger $t -Settings $s "
@@ -1180,7 +1182,7 @@ def cmd_vigia(args):
         tentados = set()
     for i in fila["pendentes"]:
         quando = datetime.fromisoformat(i["quando"])
-        # 15/11: o vigia lia TODOS os contêineres a cada 5 min (~100 chamadas/h) e a Meta bloqueou a API.
+        # 15/11: o vigia lia TODOS os contêineres a cada 5 min (~100 chamadas/h) e estourou o limite de uso da API.
         # Agora só olha o que venceu há 4+ min, uma única vez por contêiner.
         if agora - quando < timedelta(minutes=4) or i["creation_id"] in tentados:
             continue
